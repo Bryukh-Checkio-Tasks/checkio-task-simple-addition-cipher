@@ -1,11 +1,38 @@
-def checkio(a, b):
-    """
-        sums two passed arguments
-    """
-    return None
+def checkio(data):
+    old_encrypted, old_decrypted, new_encrypted = data
+    
+    #replace this for solution
+    return ''
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
-    assert checkio(3, 2) == 5
-    assert checkio(5, 7) == 12
-    print('Done')
+    assert checkio(
+        [
+            'lmljemxbwrhhfyd stlmhrxyvwhk',
+            'this text contain the secret',
+            'tsgryaaxckjqledcxhshreyuasckmysxhuwyl'
+        ]) == 'and this text also contain the secret', 'Secret'
+    assert checkio(
+        [
+            'pjxxchnedonncdhhrqdgilq',
+            'hello its first message',
+            'pjxxchnedo jo bleyqg fsq'
+        ]) == 'hello its second message', "Hello"
+    assert checkio(
+        [
+            'dxb dxb dxb dxb',
+            'bla bla bla bla',
+            'tqblbefxv'
+        ]) == 'real text', "Bla Bla Bla"
+    assert checkio(
+        [
+            'dtqyefpxqtlh',
+            'long message',
+            'kmriy'
+        ]) == 'short', "Short"
+    assert checkio(
+        [
+            'vjwclkjfijm',
+            'keyofsecret',
+            'lpcmuyxhuwyd'
+        ]) == 'akeyofsecret', "Almost"
