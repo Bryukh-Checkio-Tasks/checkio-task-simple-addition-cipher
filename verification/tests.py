@@ -11,26 +11,95 @@ Each test is dict with
 TESTS = {
     "Basics": [
         {
-            "input": [3, 2],
-            "answer": 5,
-            "explanation": "3+2=?"
+            "input": [
+                "lmljemxbwrhhfyd stlmhrxyvwhk",
+                "this text contain the secret",
+                "tsgryaaxckjqledcxhshreyuasckmysxhuwyl"
+            ],
+            "answer": "and this text also contain the secret"
         },
         {
-            "input": [5, 7],
-            "answer": 12,
-            "explanation": "5+7=?"
-        }
+            "input": [
+                "pjxxchnedonncdhhrqdgilq",
+                "hello its first message",
+                "pjxxchnedo jo bleyqg fsq"
+            ],
+            "answer": "hello its second message"
+        },
+        {
+            "input": [
+                "dxb dxb dxb dxb",
+                "bla bla bla bla",
+                "tqblbefxv"
+            ],
+            "answer": "real text"
+        },
+        {
+            "input": [
+                "dtqyefpxqtlh",
+                "long message",
+                "kmriy"
+            ],
+            "answer": "short"
+        },
+        {
+            "input": [
+                "vjwclkjfijm",
+                "keyofsecret",
+                "lpcmuyxhuwyd"
+            ],
+            "answer": "akeyofsecret"
+        },
+        {
+            "input": [
+                "amonzkthzcseceeslhfpq",
+                "it was the long story",
+                "agokfxtuspszpiyyufrjtgs"
+            ],
+            "answer": "in the far far far land"
+        },
+        
     ],
     "Extra": [
         {
-            "input": [6, 3],
-            "answer": 9,
-            "explanation": "6+3=?"
+            "input": [
+                "sjjwt",
+                "hello",
+
+                "key"],
+            "answer": "   "
         },
         {
-            "input": [6, 7],
-            "answer": 13,
-            "explanation": "6+7=?"
+            "input": [
+                "ekeetshttdetesbweseseebkwykllblck",
+                "asdas das daa asd a daassfjhkjhkj",
+                "saqsa mzxiobgskotbrwaokcddbntsodenaswkewbw"
+            ],
+            "answer": "oipo higwenjc jksjnd kjk lajs kldj  ssdsad"
+        },
+        {
+            "input": [
+                "roix f gq",
+                "asdfghjkl",
+                "pthmvlc"
+            ],
+            "answer": "zxcvbnm"
+        },
+        {
+            "input": [
+                "msscdosvvznv",
+                "doom forever",
+                "rdecdrqqevbep"
+            ],
+            "answer": "i am immortal"
+        },
+        {
+            "input": [
+                "rwtngqidlpstevqyj",
+                "its old good game",
+                " hnsegjvexeghfqry"
+            ],
+            "answer": "remember warcraft"
         }
     ]
 }
