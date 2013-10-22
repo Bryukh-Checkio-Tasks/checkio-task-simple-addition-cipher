@@ -8,17 +8,27 @@
 <p>“SIGH. Okay Sofia, I’m going to help you sort this out...”</p>
 </div>
 
-<p>The robots use a very simple, symmetric cipher with a key for their correspondence. The text contains only letters (lowercase) and whitespaces. Each character is assigned a number that corresponds to its order in the alphabet (a whitespace=0). The secret key is a word that is translated into a sequence of numbers. That key is then applied to the text blocks. </p>
+<p>The robots are using a very simple symmetric cipher with a special key for their correspondence with the Home Island. 
+The text contains only lowercase letters and whitespaces. 
+Each character is assigned a number which corresponds to its order in the alphabet (a whitespace is represented by 0.)
+The secret key is a word that has been translated into a sequence of numbers. 
+That key is then applied to the block of text they wish to send. </p>
 
-<p>For encryption, the value of the first letter in the block is added to the first letter in the secret key and modulo 27 (finds the remainder of division by 27). This is repeated for all of the letters in the block.</p>
-<p>For decryption, the value of the first letter in the block is reduced by the first letter in the secret key; if it is a negative number, add 27 to it. The secret key is used throughout the text blocks cyclically. After decryption, the sequence of numbers is translated into text.</p>
+<p>For encryption, the value of the first letter in the block is added to the first letter in the secret key and modulo 27 (which finds the remainder of division by 27). 
+This is repeated for all of the letters in the block.</p>
+
+<p>For decryption, the value of the first letter in the block is reduced by number of the first letter in the secret key. 
+If it is a negative number, add 27 to it. 
+The secret key is used throughout the text blocks cyclically. 
+After decryption, the sequence of numbers is translated into text.</p>
 
 <p><b>For example: </b></p>
 <img class="for_info_only" src="{{ MEDIA }}simple-addition-cipher.png" width="600px"/>
 <img class="for_editor_only" src="{{ MEDIA }}simple-addition-cipher.png" width="380px"/>
 
 <p>
-Sofia does not have the current key, and has come across a new encrypted message. She still has the old encrypted and decrypted messages so using these, you must try to decrypt the new message.
+Sofia does not have the current key, and has come across a new encrypted message. 
+She still has the old encrypted and decrypted messages though, so using this information you must try to decrypt the new message.
 </p>
 
 <p>
