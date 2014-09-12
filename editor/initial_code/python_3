@@ -1,38 +1,12 @@
-def checkio(data):
-    old_encrypted, old_decrypted, new_encrypted = data
-    
-    #replace this for solution
-    return ''
+def decode_vigenere(old_encrypted, old_decrypted, new_encrypted):
+    return "???"
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
-    assert checkio(
-        [
-            'lmljemxbwrhhfyd stlmhrxyvwhk',
-            'this text contain the secret',
-            'tsgryaaxckjqledcxhshreyuasckmysxhuwyl'
-        ]) == 'and this text also contain the secret', 'Secret'
-    assert checkio(
-        [
-            'pjxxchnedonncdhhrqdgilq',
-            'hello its first message',
-            'pjxxchnedo jo bleyqg fsq'
-        ]) == 'hello its second message', "Hello"
-    assert checkio(
-        [
-            'dxb dxb dxb dxb',
-            'bla bla bla bla',
-            'tqblbefxv'
-        ]) == 'real text', "Bla Bla Bla"
-    assert checkio(
-        [
-            'dtqyefpxqtlh',
-            'long message',
-            'kmriy'
-        ]) == 'short', "Short"
-    assert checkio(
-        [
-            'vjwclkjfijm',
-            'keyofsecret',
-            'lpcmuyxhuwyd'
-        ]) == 'akeyofsecret', "Almost"
+    assert (decode_vigenere('DONTWORRYBEHAPPY',
+                            'FVRVGWFTFFGRIDRF',
+                            'DLLCZXMFVRVGWFTF') == "BEHAPPYDONTWORRY", "CHECKIO")
+    assert decode_vigenere('HELLO', 'OIWWC', 'ICP') == "BYE", "HELLO"
+    assert (decode_vigenere('LOREMIPSUM',
+                            'OCCSDQJEXA',
+                            'OCCSDQJEXA') == "LOREMIPSUM", "DOLORIUM")
