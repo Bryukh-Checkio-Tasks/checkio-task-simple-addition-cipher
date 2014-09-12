@@ -1,53 +1,95 @@
-<div class="story">
-<p>“Oh, darn this thing.” Sofia grumbled banging her communicator device on the table.</p>
-<p>Nikola looked up from the Hexagonal Circuit. “What’s wrong?” he walked over to where she was standing.</p>
-<p>“The ship just sent me a message about something. I don’t really know what it was about though because this blasted thing won’t work. UGH these mega-bytes!”</p>
-<p>“Hey, don’t overload there. Let me take a look... Sofia... You haven’t updated the encryption keys. You need to be running com-patch 7.11.89 and you’re running 5.6.13. Didn’t you get the emails I sent you about the updates?”</p>
-<p>“Well... Nooooot exactly... They may have been encrypted too...”</p>
-<p>“That’s why you keep asking to borrow my communications pad!” Interrupted Stephen.</p>
-<p>“SIGH. Okay Sofia, I’m going to help you sort this out...”</p>
-</div>
-
-<p>The robots are using a very simple symmetric cipher with a special key for their correspondence with the Home Island. 
-The text contains only lowercase letters and whitespaces. 
-Each character is assigned a number which corresponds to its order in the alphabet (a whitespace is represented by 0.)
-The secret key is a word that has been translated into a sequence of numbers. 
-That key is then applied to the block of text they wish to send. </p>
-
-<p>For encryption, the value of the first letter in the block is added to the first letter in the secret key and modulo 27 (which finds the remainder of division by 27). 
-This is repeated for all of the letters in the block.</p>
-
-<p>For decryption, the value of the first letter in the block is reduced by number of the first letter in the secret key. 
-If it is a negative number, add 27 to it. 
-The secret key is used throughout the text blocks cyclically. 
-After decryption, the sequence of numbers is translated into text.</p>
-
-<p><b>For example: </b></p>
-<img class="for_info_only" src="{{ MEDIA }}simple-addition-cipher.png" width="600px"/>
-<img class="for_editor_only" src="{{ MEDIA }}simple-addition-cipher.png" width="380px"/>
-
 <p>
-Sofia does not have the current key, and has come across a new encrypted message. 
-She still has the old encrypted and decrypted messages though, using this information you must try to decrypt the new message.
+    The <a href="http://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">Vigenère cipher</a>
+    is a method of encrypting alphabetic text by using a series of different Caesar ciphers based on
+    the letters of a keyword. It is a simple form of polyalphabetic substitution.
 </p>
 
 <p>
-    <strong>Input</strong>: A list of three strings: old encrypted text, old decrypted text, new encrypted text.
+    In the Vigenère each letter of a message is shifted along some number of places with different shift values.
+
+    To encrypt, a table of alphabets can be used, termed a tabula recta, Vigenère square, or Vigenère table. It consists
+    of the alphabet written out 26 times in different rows, each alphabet shifted cyclically to the left compared to the
+    previous alphabet.
+    At different points in the encryption process, the cipher uses a different alphabet from one of the rows.
+    The alphabet used at each point depends on a repeating keyword.
+</p>
+<pre>
+\  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+ \----------------------------------------------------
+A| A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+B| B C D E F G H I J K L M N O P Q R S T U V W X Y Z A
+C| C D E F G H I J K L M N O P Q R S T U V W X Y Z A B
+D| D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
+E| E F G H I J K L M N O P Q R S T U V W X Y Z A B C D
+F| F G H I J K L M N O P Q R S T U V W X Y Z A B C D E
+G| G H I J K L M N O P Q R S T U V W X Y Z A B C D E F
+H| H I J K L M N O P Q R S T U V W X Y Z A B C D E F G
+I| I J K L M N O P Q R S T U V W X Y Z A B C D E F G H
+J| J K L M N O P Q R S T U V W X Y Z A B C D E F G H I
+K| K L M N O P Q R S T U V W X Y Z A B C D E F G H I J
+L| L M N O P Q R S T U V W X Y Z A B C D E F G H I J K
+M| M N O P Q R S T U V W X Y Z A B C D E F G H I J K L
+N| N O P Q R S T U V W X Y Z A B C D E F G H I J K L M
+O| O P Q R S T U V W X Y Z A B C D E F G H I J K L M N
+P| P Q R S T U V W X Y Z A B C D E F G H I J K L M N O
+Q| Q R S T U V W X Y Z A B C D E F G H I J K L M N O P
+R| R S T U V W X Y Z A B C D E F G H I J K L M N O P Q
+S| S T U V W X Y Z A B C D E F G H I J K L M N O P Q R
+T| T U V W X Y Z A B C D E F G H I J K L M N O P Q R S
+U| U V W X Y Z A B C D E F G H I J K L M N O P Q R S T
+V| V W X Y Z A B C D E F G H I J K L M N O P Q R S T U
+W| W X Y Z A B C D E F G H I J K L M N O P Q R S T U V
+X| X Y Z A B C D E F G H I J K L M N O P Q R S T U V W
+Y| Y Z A B C D E F G H I J K L M N O P Q R S T U V W X
+Z| Z A B C D E F G H I J K L M N O P Q R S T U V W X Y
+
+</pre>
+
+<p>
+    For example, the message "DONTWORRYBEHAPPY" and the keyword is "CHECKIO". Write the message and the keyword below.
+    Then shift each letter in the message related by corresponded letter in the repeating keyword.
+</p>
+<pre>
+Message: DONTWORRYBEHAPPY
+Key:     CHECKIOCHECKIOCH
+Crypted: ????????????????
+
+</pre>
+
+<p>
+    Vigenère can also be viewed algebraically. If the letters A–Z are taken to be the numbers 0–25, and addition is
+    performed modulo 26, then Vigenère encryption E using the key K can be written as:<br>
+    C<sub>i</sub>&nbsp;=&nbsp;E<sub>k</sub>(M<sub>i</sub>)&nbsp;=&nbsp;(M<sub>i</sub>&nbsp;+&nbsp;K<sub>i</sub>)&nbsp;%&nbsp;26
 </p>
 
 <p>
-    <strong>Output</strong>: The string of the new decrypted text.
+    Now suppose the case. You and your friend use for the correspondence that cipher.
+    And you've forgot the key. But you have archive with encrypted and decrypted message.
+    With that you can find the key and decrypt the new fresh message from your friend.
+
+</p>
+<p>
+    <strong>Input</strong>: Three arguments. And old encrypted message, an old decrypted message and a new encrypted
+    message as strings (unicode for py2).
+</p>
+
+<p>
+    <strong>Output</strong>: The new decrypted message as a string.
 </p>
 
 <div class="for_info_only">
-<pre class="brush:python">checkio(['lmljemxbwrhhfyd stlmhrxyvwhk',
-          'this text contain the secret',
-          'tsgryaaxckjqledcxhshreyuasckmysxhuwyl'
-    ]) == 'and this text also contain the secret'
-</pre>
+    <p>
+        <strong>Example:</strong>
+    </p>
+    <pre class="brush: python">
+    </pre>
 </div>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    Decryption software.
+</p>
+
+<p>
+    <strong>Precondition:</strong><br>
+
 </p>
