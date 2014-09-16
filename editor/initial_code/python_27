@@ -3,10 +3,10 @@ def decode_vigenere(old_encrypted, old_decrypted, new_encrypted):
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
-    assert (decode_vigenere(u'DONTWORRYBEHAPPY',
-                            u'FVRVGWFTFFGRIDRF',
-                            u'DLLCZXMFVRVGWFTF') == "BEHAPPYDONTWORRY", "CHECKIO")
+    assert decode_vigenere(u'DONTWORRYBEHAPPY',
+                           u'FVRVGWFTFFGRIDRF',
+                           u'DLLCZXMFVRVGWFTF') == "BEHAPPYDONTWORRY", "CHECKIO"
     assert decode_vigenere(u'HELLO', u'OIWWC', u'ICP') == "BYE", "HELLO"
-    assert (decode_vigenere(u'LOREMIPSUM',
-                            u'OCCSDQJEXA',
-                            u'OCCSDQJEXA') == "LOREMIPSUM", "DOLORIUM")
+    assert decode_vigenere(u'LOREMIPSUM',
+                           u'OCCSDQJEXA',
+                           u'OCCSDQJEXA') == "LOREMIPSUM", "DOLORIUM"
