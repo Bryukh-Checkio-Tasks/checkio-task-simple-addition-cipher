@@ -5,10 +5,11 @@
 </p>
 
 <p>
-    In the Vigenère each letter of a message is shifted along some number of places with different shift values.
+    In the Vigenère cipher each letter of a message is shifted along some number of places with different shift values.
 
     To encrypt, a table of alphabets can be used, termed a tabula recta, Vigenère square, or Vigenère table. It consists
-    of the alphabet written out 26 times in different rows, each alphabet shifted cyclically to the left compared to the
+    of the alphabet written out 26 times in different rows, each version of the alphabet is shifted
+    cyclically to the left compared to the
     previous alphabet.
     At different points in the encryption process, the cipher uses a different alphabet from one of the rows.
     The alphabet used at each point depends on a repeating keyword.
@@ -46,13 +47,14 @@ Z| Z A B C D E F G H I J K L M N O P Q R S T U V W X Y
 </pre>
 
 <p>
-    For example, the message "DONTWORRYBEHAPPY" and the keyword is "CHECKIO". Write the message and the keyword below.
-    Then shift each letter in the message related by corresponded letter in the repeating keyword.
+    To see how this works, lets take, the message "DONTWORRYBEHAPPY" and the keyword "CHECKIO". Write the message and
+    the keyword below,
+    then shift each letter in the message related by corresponded letter in the repeating keyword.
 </p>
 <pre>
-Message: DONTWORRYBEHAPPY
-Key:     CHECKIOCHECKIOCH
-Crypted: FVRVGWFTFFGRIDRF
+Message:   DONTWORRYBEHAPPY
+Key:       CHECKIOCHECKIOCH
+Encrypted: FVRVGWFTFFGRIDRF
 
 </pre>
 
@@ -63,13 +65,13 @@ Crypted: FVRVGWFTFFGRIDRF
 </p>
 
 <p>
-    Now suppose the case. You and your friend use for the correspondence that cipher.
-    And you've forgot the key. But you have archive with encrypted and decrypted message.
-    With that you can find the key and decrypt the new fresh message from your friend.
+    Now, consider the following scenario: you and your friend use that cipher for correspondence and you've forgot the
+    key. But, to your luck, you have an archive with encrypted and decrypted message. With that you can find the key and
+    decrypt the new fresh message from your friend.
 
 </p>
 <p>
-    <strong>Input</strong>: Three arguments. And old encrypted message, an old decrypted message and a new encrypted
+    <strong>Input</strong>: Three arguments. An old encrypted message, an old decrypted message and a new encrypted
     message as strings (unicode for py2).
 </p>
 
@@ -87,8 +89,8 @@ Crypted: FVRVGWFTFFGRIDRF
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    This is a simple cipher but it had wide usage in the old times.
-    And as we can see a key is easy calculated if you know something about a message.
+    This is a simple cipher which had widespread usage in olden times. As we can see, the key is can be easily
+    calculated if you know a little bit about the content of the message.
 </p>
 
 <p>
