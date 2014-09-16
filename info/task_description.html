@@ -71,7 +71,7 @@ Encrypted: FVRVGWFTFFGRIDRF
 
 </p>
 <p>
-    <strong>Input</strong>: Three arguments. An old encrypted message, an old decrypted message and a new encrypted
+    <strong>Input</strong>: Three arguments. An old decrypted message, an old encrypted message and a new encrypted
     message as strings (unicode for py2).
 </p>
 
@@ -97,4 +97,5 @@ decode_vigenere('HELLO', 'OIWWC', 'ICP') == "BYE"
 <p>
     <strong>Precondition:</strong><br>
     all(re.match("[A-Z]+\Z", text) for text in args)<br>
+    len(key) &le; old_encrypted
 </p>
