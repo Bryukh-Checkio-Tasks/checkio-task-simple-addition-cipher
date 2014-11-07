@@ -40,12 +40,12 @@ TESTS = {
             "answer": "HESNOTTHEMESSIAHHESAVERYNAUGHTYBOY",
             "explanation": "MONTY",
         },
-        {
-            "input": ['DOESNOTWORKINALLCASES', 'RVSZBVLKQFYTBHZSQHKSU',
-                      'VLFLOUWLCADWSVTHPYGYGBQLGL'],
-            "answer": "HEREANEXAMPLEOFABROKENCASE",
-            "explanation": "OHOHOHSOCOOL",
-        },
+        # {
+        #     "input": ['DOESNOTWORKINALLCASES', 'RVSZBVLKQFYTBHZSQHKSU',
+        #               'VLFLOUWLCADWSVTHPYGYGBQLGL'],
+        #     "answer": "HEREANEXAMPLEOFABROKENCASE",
+        #     "explanation": "OHOHOHSOCOOL",
+        # },
 
         {
             "input": [
