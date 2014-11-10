@@ -97,5 +97,6 @@ decode_vigenere('HELLO', 'OIWWC', 'ICP') == "BYE"
 <p>
     <strong>Precondition:</strong><br>
     all(re.match("[A-Z]+\Z", text) for text in args)<br>
-    len(key) &le; len(old_encrypted)
+    len(key) &le; len(old_encrypted)<br>
+    2 * len(key) <= len(old_encrypted) < len(new_encrypted) or len(new_encrypted) <= len(old_encrypted)
 </p>
