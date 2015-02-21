@@ -1,0 +1,103 @@
+<p>
+    <a href="https://ru.wikipedia.org/wiki/%D0%A8%D0%B8%D1%84%D1%80_%D0%92%D0%B8%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%B0">Шифр Виженера</a> — метод полиалфавитного шифрования 
+    буквенного текста с использованием ключевого слова. 
+    Этот метод является простой формой многоалфавитной замены.
+</p>
+
+<p>
+    В шифре Виженера каждая буква сообщения смещается на некоторое
+     число позиций с различными значениями сдвига.
+
+    Для шифрования алфавита может быть использован квадрат Виженера
+    (или таблица Виженера). Он состоит из алфавита, который записан 
+    в 26 разных строках, каждая из которых смещена влево относительно предыдущей.
+
+    На разных этапах шифрования, шифр использует различные алфавиты одной из строки.
+    Алфавит используемый в каждой точки зависит от повторяющегося ключевого слова.
+</p>
+<pre>
+\  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+ \----------------------------------------------------
+A| A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+B| B C D E F G H I J K L M N O P Q R S T U V W X Y Z A
+C| C D E F G H I J K L M N O P Q R S T U V W X Y Z A B
+D| D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
+E| E F G H I J K L M N O P Q R S T U V W X Y Z A B C D
+F| F G H I J K L M N O P Q R S T U V W X Y Z A B C D E
+G| G H I J K L M N O P Q R S T U V W X Y Z A B C D E F
+H| H I J K L M N O P Q R S T U V W X Y Z A B C D E F G
+I| I J K L M N O P Q R S T U V W X Y Z A B C D E F G H
+J| J K L M N O P Q R S T U V W X Y Z A B C D E F G H I
+K| K L M N O P Q R S T U V W X Y Z A B C D E F G H I J
+L| L M N O P Q R S T U V W X Y Z A B C D E F G H I J K
+M| M N O P Q R S T U V W X Y Z A B C D E F G H I J K L
+N| N O P Q R S T U V W X Y Z A B C D E F G H I J K L M
+O| O P Q R S T U V W X Y Z A B C D E F G H I J K L M N
+P| P Q R S T U V W X Y Z A B C D E F G H I J K L M N O
+Q| Q R S T U V W X Y Z A B C D E F G H I J K L M N O P
+R| R S T U V W X Y Z A B C D E F G H I J K L M N O P Q
+S| S T U V W X Y Z A B C D E F G H I J K L M N O P Q R
+T| T U V W X Y Z A B C D E F G H I J K L M N O P Q R S
+U| U V W X Y Z A B C D E F G H I J K L M N O P Q R S T
+V| V W X Y Z A B C D E F G H I J K L M N O P Q R S T U
+W| W X Y Z A B C D E F G H I J K L M N O P Q R S T U V
+X| X Y Z A B C D E F G H I J K L M N O P Q R S T U V W
+Y| Y Z A B C D E F G H I J K L M N O P Q R S T U V W X
+Z| Z A B C D E F G H I J K L M N O P Q R S T U V W X Y
+
+</pre>
+
+<p>
+    Чтобы увидеть как это работает, давайте, возьмем сообщение "DONTWORRYBEHAPPY" 
+    и ключевое слово "CHECKIO". Напишем собщение и ниже ключевых слов,
+    затем сдвинем каждую букву в сообщении, связанную соответсвиющей букве в
+    повторяющемся ключевом слове.
+</p>
+<pre>
+Сообщение:       DONTWORRYBEHAPPY
+Ключевое слово:  CHECKIOCHECKIOCH
+Шифровка:        FVRVGWFTFFGRIDRF
+
+</pre>
+
+<p>
+    Шифр Виженера может быть рассмотрен алгебраически. Если буквы A–Z принимают значения чисел 0–25, и дополнительно выполняют деление по модулю 26, тогда шифр Виженера E, используя ключ K можно записать как:<br>
+    C<sub>i</sub>&nbsp;=&nbsp;E<sub>k</sub>(M<sub>i</sub>)&nbsp;=&nbsp;(M<sub>i</sub>&nbsp;+&nbsp;K<sub>i</sub>)&nbsp;%&nbsp;26
+</p>
+
+<p>
+    Теперь рассмотрим следующий сценарий: вы и ваш друг используете этот
+    шифр для переписки, и вы забыли ключ. Но, у вас есть архив с зашифрованным 
+    и расшифрованным сообщением. При этом вы можете найти ключ и расшифровать 
+    новое сообщение от вашего друга.
+</p>
+<p>
+    <strong>Входные данные: </strong> Три аргумента. 
+    Старое расшифрованное сообщение, старое зашифрованное сообщение 
+    и новое зашифрованное сообщение, как строки (unicode для py2).
+</p>
+
+<p>
+    <strong>Выходные данные: </strong> Новое расшифрованное сообщение.
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>Примеры: </strong>
+    </p>
+    <pre class="brush: python">
+decode_vigenere('HELLO', 'OIWWC', 'ICP') == "BYE"
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Как это используется </strong>
+    Это простой шифр, который был широко распространен и использовался в старину. Как видно, ключ можно легко вычислить, если вы немного знаете о содержании сообщения.
+</p>
+
+<p>
+    <strong>Предусловия:</strong><br>
+    all(re.match("[A-Z]+\Z", text) for text in args)<br>
+    len(key) &le; len(old_encrypted)<br>
+    2 * len(key) <= len(old_encrypted) < len(new_encrypted) or len(new_encrypted) <= len(old_encrypted)
+</p>
