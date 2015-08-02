@@ -148,5 +148,13 @@ TESTS = {
             "answer": "IMALUMBERJACKANDIMOKISLEEPALLNIGHTANDIWORKALLDAYICUTDOWNTREESISKIPANDJUMPILIKETOPRESSWILDFLOWERSIPUTONWOMENSCLOTHINGANDHANGAROUNDINBARS",
             "explanation": "EVERYBODY",
         },
+        {
+            # to make sure solutions check partial repeats of keys;
+            # improper solutions might conclude the key is "AB" if they don't
+            # check the last partial repeat of "AB" does not match "C";
+            "input": ['AAAAAAAAA', 'ABABABABC', 'ABABABABC'],
+            "answer": "AAAAAAAAA",
+            "explanation": "ABABABABC",
+        },        
     ]
 }
