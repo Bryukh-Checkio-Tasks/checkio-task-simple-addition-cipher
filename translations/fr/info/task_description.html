@@ -1,0 +1,107 @@
+<p>
+    Le <a href="http://fr.wikipedia.org/wiki/Chiffre_de_Vigen%C3%A8re">chiffre de Vigenère</a>
+    est une méthode de chiffrement de textes alphabétiques qui utilise une succession de 
+    <a href="https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage">chiffres de César</a>, 
+    basés sur les lettres d'un mot-clé.
+    C'est une forme simple de substitution polyalphabétique.
+</p>
+
+<p>
+    Pour le chiffre de Vigenère, chaque lettre du message est décalée d'un 
+    certain nombre de places dans l'alphabet, et la valeur du décalage dépend de la lettre codée 
+    et de sa position dans le texte.
+    Pour coder, on peut utiliser une table des alphabets, appelée <em>tabula recta</em>, <em>carré de Vigenère</em>, 
+    ou <em>table de Vigenère</em>.
+    Elle est constituée de 26 lignes qui contiennent l'alphabet décalé circulairement vers la gauche d'un cran 
+    par rapport à la ligne précédente.
+    À chaque étape du processus de codage, c'est l'un de ces alphabets décalés qui est choisi, en fonction 
+    d'une répétition du mot-clé. 
+</p>
+<pre>
+\  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+ \----------------------------------------------------
+A| A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+B| B C D E F G H I J K L M N O P Q R S T U V W X Y Z A
+C| C D E F G H I J K L M N O P Q R S T U V W X Y Z A B
+D| D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
+E| E F G H I J K L M N O P Q R S T U V W X Y Z A B C D
+F| F G H I J K L M N O P Q R S T U V W X Y Z A B C D E
+G| G H I J K L M N O P Q R S T U V W X Y Z A B C D E F
+H| H I J K L M N O P Q R S T U V W X Y Z A B C D E F G
+I| I J K L M N O P Q R S T U V W X Y Z A B C D E F G H
+J| J K L M N O P Q R S T U V W X Y Z A B C D E F G H I
+K| K L M N O P Q R S T U V W X Y Z A B C D E F G H I J
+L| L M N O P Q R S T U V W X Y Z A B C D E F G H I J K
+M| M N O P Q R S T U V W X Y Z A B C D E F G H I J K L
+N| N O P Q R S T U V W X Y Z A B C D E F G H I J K L M
+O| O P Q R S T U V W X Y Z A B C D E F G H I J K L M N
+P| P Q R S T U V W X Y Z A B C D E F G H I J K L M N O
+Q| Q R S T U V W X Y Z A B C D E F G H I J K L M N O P
+R| R S T U V W X Y Z A B C D E F G H I J K L M N O P Q
+S| S T U V W X Y Z A B C D E F G H I J K L M N O P Q R
+T| T U V W X Y Z A B C D E F G H I J K L M N O P Q R S
+U| U V W X Y Z A B C D E F G H I J K L M N O P Q R S T
+V| V W X Y Z A B C D E F G H I J K L M N O P Q R S T U
+W| W X Y Z A B C D E F G H I J K L M N O P Q R S T U V
+X| X Y Z A B C D E F G H I J K L M N O P Q R S T U V W
+Y| Y Z A B C D E F G H I J K L M N O P Q R S T U V W X
+Z| Z A B C D E F G H I J K L M N O P Q R S T U V W X Y
+
+</pre>
+
+<p>
+    Pour visualiser le fonctionnement du chiffre, considérons le message "DONTWORRYBEHAPPY" et le mot-clé "CHECKIO".
+    Il faut ensuite écrire le message, puis les répétitions du mot-clé au-dessous. 
+    Enfin, il suffit, par lecture de la table de Vigenère, de décaler chaque lettre du message (portée en colonne) en fonction 
+    de la lettre du mot-clé correspondante (portée en ligne).
+</p>
+<pre>
+Message:   DONTWORRYBEHAPPY
+Mot-clé:   CHECKIOCHECKIOCH
+Codé:      FVRVGWFTFFGRIDRF
+</pre>
+
+<p>
+    Le chiffre de Vigenère peut également être interprété algébriquement.
+    Si les lettres A-Z sont représentées par les nombres 0-25,
+    et que l'on considère l'addition modulo 26,
+    alors le codage de la lettre E en utilisant la clé K peut être traduit par:<br>
+    C<sub>i</sub>&nbsp;=&nbsp;E<sub>k</sub>(M<sub>i</sub>)&nbsp;=&nbsp;(M<sub>i</sub>&nbsp;+&nbsp;K<sub>i</sub>)&nbsp;%&nbsp;26
+</p>
+
+<p>
+   Imaginons à présent le scénario suivant : votre ami et vous utilisez ce chiffre pour correspondre,
+   et vous avez oublié le mot-clé.
+   Mais par chance, il vous reste une sauvegarde d'un message codé et de ce même message décodé.
+   De sorte que vous pouvez reconstituer la clé et décoder le tout nouveau message envoyé par votre ami.
+</p>
+<p>
+    <strong>Input:</strong> Trois arguments. Un vieux message décodé, ce même message codé, 
+    et un nouveau message à décoder, comme chaînes de caractères (string) (unicode pour py2).
+</p>
+
+<p>
+    <strong>Output:</strong> Le message décodé comme chaîne de caractères (string).
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>Exemple:</strong>
+    </p>
+    <pre class="brush: python">
+decode_vigenere('HELLO', 'OIWWC', 'ICP') == "BYE"
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Application: </strong>
+    C'est un chiffre simple et très répandu par le passé.
+    Comme on le voit, la clé peut être trouvée facilement si on dispose de quelques informations concernant le message.
+</p>
+
+<p>
+    <strong>Préconditions:</strong><br>
+    all(re.match("[A-Z]+\Z", text) for text in args)<br>
+    len(key) &le; len(old_encrypted)<br>
+    2 * len(key) <= len(old_encrypted) < len(new_encrypted) or len(new_encrypted) <= len(old_encrypted)
+</p>
